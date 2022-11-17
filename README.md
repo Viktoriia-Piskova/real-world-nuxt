@@ -9,6 +9,9 @@ $ npm install
 # serve with hot reload at localhost:3000
 $ npm run dev
 
+#if error ERR_OSSL_EVP_UNSUPPORTED run in console
+$ export NODE_OPTIONS=--openssl-legacy-provider
+
 # build for production and launch server
 $ npm run build
 $ npm run start
@@ -66,3 +69,5 @@ More information about the usage of this directory in [the documentation](https:
 This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
 
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+
+NB! npm i create-nuxt-app >>> npx create-nuxt-app real-world-nuxt
