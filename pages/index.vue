@@ -18,11 +18,16 @@ export default {
   components:{
     EventCard
   },
-  asyncData(context){ // asyncData is a hook provided by nuxt in every .vue inside 'pages'
-    return context.$axios.get('http://localhost:3000/events').then(response => {
+  asyncData({$axios, error}){ // asyncData is a hook provided by nuxt in every .vue inside 'pages'
+    return $axios.get('http://localhost:3000/events').then(response => {
       return {
         events: response.data
       }
+    }).catch(e => {
+      error({
+        statusCode: 503,
+        message: 'Unable to fetch events at this time. Please try again'
+      })
     })
   },
   head() { // <-- property used by vue-meta to add header tags
