@@ -13,16 +13,14 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 import EventCard from '~/components/EventCard.vue'
 export default {
   components:{
     EventCard
   },
-  async asyncData({$axios, error}){ // asyncData is a hook provided by nuxt in every .vue inside 'pages'
-    try {const {data} = await $axios.get('http://localhost:3000/events')
-      return {
-        events: data
-      }
+  async fetch({store, error}){ // fetch is a hook by nuxt inside 'pages', waits for the store
+    try { await store.dispatch('events/fetchEvents')
     } catch(e) {
       error({
         statusCode: 503,
@@ -42,6 +40,9 @@ export default {
         }
       ]
     }
-  }
+  },
+  computed: mapState({
+      events: state => state.events.events
+    })
 }
 </script>
