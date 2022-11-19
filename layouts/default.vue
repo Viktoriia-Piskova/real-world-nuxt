@@ -8,7 +8,9 @@
   <script>
 import NavBar from '~/components/NavBar.vue';
    export default {
-    components: NavBar,
+    components: {
+      'nav-bar': NavBar
+    },
     head() { // <-- property used by vue-meta to add header tags
     return {
       titleTemplate: '%s - Real World Events', // <-- For our title tag

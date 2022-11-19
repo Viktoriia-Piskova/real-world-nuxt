@@ -2,7 +2,7 @@
   <div>
     <h1>All Events list</h1>
 
-    <EventCard
+    <event-card
     v-for="(event, index) in events"
     :key="index"
     :event="event"
@@ -16,8 +16,10 @@
 import {mapState} from 'vuex'
 import EventCard from '~/components/EventCard.vue'
 export default {
-  components:{
-    EventCard
+  // eslint-disable-next-line vue/component-definition-name-casing
+  name: 'index',
+  components: {
+    'event-card': EventCard
   },
   async fetch({store, error}){ // fetch is a hook by nuxt inside 'pages', waits for the store
     try { await store.dispatch('events/fetchEvents')
