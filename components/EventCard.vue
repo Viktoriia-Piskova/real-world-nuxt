@@ -20,7 +20,7 @@ export default{
         event: Object
     },
     computed: {
-        parseDate(){
+        parsedDate(){
             const eventDate = new Date(this.event.date)
             return eventDate.toDateString()
         }
