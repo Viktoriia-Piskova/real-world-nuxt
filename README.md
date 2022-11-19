@@ -12,6 +12,11 @@ $ npm run dev
 #if error ERR_OSSL_EVP_UNSUPPORTED run in console
 $ export NODE_OPTIONS=--openssl-legacy-provider
 
+#run both db.json and dev:
+$  npm install -g json-server
+$ json-server --watch db.json
+$ PORT=3001 npm run dev (to make dev run on different from 3000 port)
+
 # build for production and launch server
 $ npm run build
 $ npm run start
