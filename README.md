@@ -9,6 +9,8 @@ $ npm install
 # serve with hot reload at localhost:3000
 $ npm run dev
 
+#use node version  16+ (18 isn't supported by Heroku)
+
 #if error ERR_OSSL_EVP_UNSUPPORTED run in console
 $ export NODE_OPTIONS=--openssl-legacy-provider
 
